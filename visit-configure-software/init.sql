@@ -3,7 +3,7 @@
 CREATE TYPE CONFIG_LEVEL AS ENUM ('BED', 'ROOM', 'FLOOR', 'BUILDING', 'FACILITY');
 
 CREATE TABLE IF NOT EXISTS PATIENT (
-    patient_id INTEGER NOT NULL PRIMARY KEY,
+    patient_id SERIAL PRIMARY KEY,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     bed_code TEXT NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS PATIENT (
 )
 
 CREATE TABLE IF NOT EXISTS ADMISSION (
-    admission_id INTEGER NOT NULL PRIMARY KEY,
+    admission_id SERIAL PRIMARY KEY,
     patient_id INTEGER NOT NULL,
     admittedOn DATETIME NOT NULL,
     dignosis TEXT,
@@ -23,44 +23,50 @@ CREATE TABLE IF NOT EXISTS ADMISSION (
 
 
 CREATE TABLE IF NOT EXISTS BED (
-    bed_id TEXT NOT NULL PRIMARY KEY,
+    bed_id SERIAL PRIMARY KEY,
+    bed_code TEXT NOT NULL,
     room_id TEXT NOT NULL,
     createAt DATETIME,
     updatedAy DATETIME
 )
 
 CREATE TABLE IF NOT EXISTS ROOM (
-    room_id TEXT NOT NULL PRIMARY KEY,
+    room_id SERIAL PRIMARY KEY,
+    room_code TEXT NOT NULL,
     floor_id TEXT NOT NULL,
     createAt DATETIME,
     updatedAy DATETIME
 )
 
 CREATE TABLE IF NOT EXISTS FLOOR (
-    floor_id TEXT NOT NULL PRIMARY KEY,
+    floor_id SERIAL PRIMARY KEY,
+    floor_code TEXT NOT NULL,
     building_id TEXT NOT NULL,
     createAt DATETIME,
     updatedAy DATETIME
 )
 
 CREATE TABLE IF NOT EXISTS BUILDING (
-    building_id TEXT NOT NULL PRIMARY KEY,
+    building_id SERIAL PRIMARY KEY,
+    building_code TEXT NOT NULL,
     facility_id TEXT NOT NULL,
     createAt DATETIME,
     updatedAy DATETIME
 )
 
 CREATE TABLE IF NOT EXISTS FACILITY (
-    facility_id TEXT NOT NULL PRIMARY KEY,
+    facility_id SERIAL PRIMARY KEY,
+    facility_code TEXT NOT NULL,
     facility_location TEXT NOT NULL,
     createAt DATETIME,
     updatedAy DATETIME
 )
 
 CREATE TABLE IF NOT EXISTS CONFIGURATION (
-    configuration_id TEXT NOT NULL PRIMARY KEY,
+    configuration_id SERIAL PRIMARY KEY,
+    configuration_code TEXT NOT NULL,
     description TEXT,
-    level CONFIG_LEVEL NOT NULL,
+    metadata JSONB,
     effective_start_date DATETIME NOT NUll,
     effective_end_date DATETIME NOT NUll,
     createAt DATETIME,
