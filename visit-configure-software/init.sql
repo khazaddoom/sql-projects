@@ -7,18 +7,18 @@ CREATE TABLE IF NOT EXISTS PATIENT (
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     bed_code TEXT NOT NULL,
-    createAt DATETIME,
-    updatedAy DATETIME
+    createAt TIMESTAMP,
+    updatedAy TIMESTAMP
 )
 
 CREATE TABLE IF NOT EXISTS ADMISSION (
     admission_id SERIAL PRIMARY KEY,
     patient_id INTEGER NOT NULL,
-    admittedOn DATETIME NOT NULL,
+    admittedOn TIMESTAMP NOT NULL,
     dignosis TEXT,
     attending_doctor_id INTEGER NOT NULL,
-    createAt DATETIME,
-    updatedAy DATETIME
+    createAt TIMESTAMP,
+    updatedAy TIMESTAMP
 )
 
 
@@ -26,40 +26,40 @@ CREATE TABLE IF NOT EXISTS BED (
     bed_id SERIAL PRIMARY KEY,
     bed_code TEXT NOT NULL,
     room_id TEXT NOT NULL,
-    createAt DATETIME,
-    updatedAy DATETIME
+    createAt TIMESTAMP,
+    updatedAy TIMESTAMP
 )
 
 CREATE TABLE IF NOT EXISTS ROOM (
     room_id SERIAL PRIMARY KEY,
     room_code TEXT NOT NULL,
     floor_id TEXT NOT NULL,
-    createAt DATETIME,
-    updatedAy DATETIME
+    createAt TIMESTAMP,
+    updatedAy TIMESTAMP
 )
 
 CREATE TABLE IF NOT EXISTS FLOOR (
     floor_id SERIAL PRIMARY KEY,
     floor_code TEXT NOT NULL,
     building_id TEXT NOT NULL,
-    createAt DATETIME,
-    updatedAy DATETIME
+    createAt TIMESTAMP,
+    updatedAy TIMESTAMP
 )
 
 CREATE TABLE IF NOT EXISTS BUILDING (
     building_id SERIAL PRIMARY KEY,
     building_code TEXT NOT NULL,
     facility_id TEXT NOT NULL,
-    createAt DATETIME,
-    updatedAy DATETIME
+    createAt TIMESTAMP,
+    updatedAy TIMESTAMP
 )
 
 CREATE TABLE IF NOT EXISTS FACILITY (
     facility_id SERIAL PRIMARY KEY,
     facility_code TEXT NOT NULL,
     facility_location TEXT NOT NULL,
-    createAt DATETIME,
-    updatedAy DATETIME
+    createAt TIMESTAMP,
+    updatedAy TIMESTAMP
 )
 
 CREATE TABLE IF NOT EXISTS CONFIGURATION (
@@ -67,10 +67,10 @@ CREATE TABLE IF NOT EXISTS CONFIGURATION (
     configuration_code TEXT NOT NULL,
     description TEXT,
     metadata JSONB,
-    effective_start_date DATETIME NOT NUll,
-    effective_end_date DATETIME NOT NUll,
-    createAt DATETIME,
-    updatedAy DATETIME
+    effective_start_date TIMESTAMP NOT NUll,
+    effective_end_date TIMESTAMP NOT NUll,
+    createAt TIMESTAMP,
+    updatedAy TIMESTAMP
 )
 
 
