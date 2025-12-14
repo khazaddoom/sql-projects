@@ -64,11 +64,8 @@ CREATE TABLE IF NOT EXISTS FACILITY (
 
 CREATE TABLE IF NOT EXISTS CONFIGURATION (
     configuration_id SERIAL PRIMARY KEY,
-    configuration_code TEXT NOT NULL,
-    description TEXT,
+    reason TEXT,
     metadata JSONB,
-    effective_start_date TIMESTAMP NOT NUll,
-    effective_end_date TIMESTAMP NOT NUll,
     createAt TIMESTAMP,
     updatedAy TIMESTAMP
 )
