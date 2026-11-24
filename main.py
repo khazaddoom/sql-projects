@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 # 1. Hardcoded Secret Key
 app.secret_key = "super-secret-admin-key-12345"
+app.graph_key = os.environ["AZURE_GRAPH_KEY"]
 
 @app.route("/ping")
 def ping():
